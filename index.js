@@ -5,7 +5,6 @@ let array = [];
 
 
 function display_todo() {
-  array = [...array, todo.value]
   var input = document.createElement("li");
   var textnode = document.createTextNode(array[array.length-1]);
   input.appendChild(textnode);
@@ -18,6 +17,7 @@ function display_todo() {
 }
 
 function add_todo() {
+  array = [...array, todo.value]
   display_todo();
 }
 
