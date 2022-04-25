@@ -3,21 +3,11 @@ var button = document.getElementById("add");
 var display = document.getElementById("display");
 let array = [];
 
-function add_todo() {
-  // var newTodo = new todoCon(todo);
-  array = [...array, todo.value]
-  // array.push(newTodo.todo.value);
-  display_todo();
-}
-
-function delete_todo(arr, index) {
-  arr.splice(index, 1);
-  display_todo();
-}
 
 function display_todo() {
+  array = [...array, todo.value]
   var input = document.createElement("li");
-  var textnode = document.createTextNode(todo.value);
+  var textnode = document.createTextNode(array[array.length-1]);
   input.appendChild(textnode);
   input.innerHTML += 
   `   <button onclick="this.parentNode.remove();">Delete</button><br>`;
@@ -25,6 +15,15 @@ function display_todo() {
   
   console.log(array);
   todo.value = "";
+}
+
+function add_todo() {
+  display_todo();
+}
+
+function delete_todo(arr, index) {
+  arr.splice(index, 1);
+  display_todo();
 }
 
 function afterClick() {
